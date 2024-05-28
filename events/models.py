@@ -1,3 +1,8 @@
 from django.db import models
+from bars.models import Bar
 
-# Create your models here.
+class Event(models.Model):
+    bar = models.ForeignKey(Bar, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    date = models.DateTimeField()
